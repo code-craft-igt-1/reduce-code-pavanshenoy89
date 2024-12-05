@@ -22,9 +22,6 @@ CustomBrightener::CustomBrightener(std::shared_ptr<Image> inputImage, std::share
     : m_inputImage(inputImage), m_imageToAdd(imageToAdd) {}
 
 void CustomBrightener::ProcessPixel(int pixelIndex) {
-    if (m_imageToAdd->m_rows != m_inputImage->m_rows || m_imageToAdd->m_columns != m_inputImage->m_columns) {
-        return;
-    }
     if (m_inputImage->pixels[pixelIndex] + m_imageToAdd->pixels[pixelIndex] > 255) {
         ++m_inputImage->attenuatedPixelCount;
         m_inputImage->pixels[pixelIndex] = 255;
