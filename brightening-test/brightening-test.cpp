@@ -19,7 +19,7 @@ TEST_F(BrighteningTest, BrightensWholeImage) {
     image->pixels[2] = 65; image->pixels[3] = 254;
 
     ImageBrightener brightener(image);
-    image->processPixels(brightener);
+    image->processPixels(&brightener);
     int attenuatedCount = image->attenuatedPixelCount;
 
     EXPECT_EQ(attenuatedCount, 1);         // Verify the number of attenuated pixels
@@ -36,7 +36,7 @@ TEST_F(BrighteningTest, BrightensWithAnotherImage) {
 
     CustomBrightener brightener(image, brighteningImage);
 
-    image->processPixels(brightener);
+    image->processPixels(&brightener);
     int attenuatedCount = image->attenuatedPixelCount;
 
     EXPECT_EQ(image->pixels[0], 45);      // Verify the left-side pixel is unchanged
