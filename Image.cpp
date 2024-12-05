@@ -1,6 +1,6 @@
+#include<iostream>
 #include "./image.h"
 #include "./pixel_processor.h"
-#include<iostream>
 
 Image::Image(uint16_t rows, uint16_t columns) : m_rows(rows), m_columns(columns), attenuatedPixelCount(0) {
     pixels = new uint8_t[m_rows * m_columns];
