@@ -22,7 +22,7 @@ void ImageBrightener::ProcessPixel(int pixelIndex) {
     ProcessPixelHelper(pixelIndex, 25);
 }
 
-CustomBrightener::CustomBrightener(std::shared_ptr<Image> inputImage, std::shared_ptr<Image> imageToAdd)
+CustomBrightener::CustomBrightener(std::shared_ptr<Image> inputImage, const std::shared_ptr<Image> imageToAdd)
     : PixelProcessor(inputImage), m_imageToAdd(imageToAdd) {}
 
 void CustomBrightener::ProcessPixel(int pixelIndex) {

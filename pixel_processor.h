@@ -27,7 +27,7 @@ private:
     std::shared_ptr<Image> m_imageToAdd;
 
 public:
-    CustomBrightener(std::shared_ptr<Image> inputImage, std::shared_ptr<Image> imageToAdd);
+    CustomBrightener(std::shared_ptr<Image> inputImage,const std::shared_ptr<Image> imageToAdd);
     void ProcessPixel(int pixelIndex) override;
 };
 
