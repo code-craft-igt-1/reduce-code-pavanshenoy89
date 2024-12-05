@@ -6,7 +6,7 @@
 class PixelProcessor {
     std::shared_ptr<Image> m_inputImage;
  public:
-    PixelProcessor(std::shared_ptr<Image> inputImage);
+    explicit PixelProcessor(std::shared_ptr<Image> inputImage);
     virtual ~PixelProcessor();
     virtual void ProcessPixel(int pixelIndex) = 0;
     virtual void ProcessPixelHelper(int pixelIndex, int brightness);
@@ -16,7 +16,7 @@ class PixelProcessor {
 // ImageBrightener class
 class ImageBrightener : public PixelProcessor {
  public:
-    ImageBrightener(std::shared_ptr<Image> inputImage);
+    explicit ImageBrightener(std::shared_ptr<Image> inputImage);
     void ProcessPixel(int pixelIndex) override;
 };
 
