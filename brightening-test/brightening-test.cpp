@@ -8,13 +8,13 @@ class BrighteningTest : public ::testing::Test {
  protected:
     std::shared_ptr<Image> image;
     void SetUp() override {
+        image = std::make_shared<Image>(2, 2);
     }
     void TearDown() override {
     }
 };
 
 TEST_F(BrighteningTest, BrightensWholeImage) {
-    image = std::make_shared<Image>(2, 2);
     image->pixels[0] = 45; image->pixels[1] = 55;
     image->pixels[2] = 65; image->pixels[3] = 254;
 
@@ -27,7 +27,6 @@ TEST_F(BrighteningTest, BrightensWholeImage) {
 }
 
 TEST_F(BrighteningTest, BrightensWithAnotherImage) {
-    image = std::make_shared<Image>(2, 2);
     image->pixels[0] = 45; image->pixels[1] = 55;
     image->pixels[2] = 65; image->pixels[3] = 75;
 
