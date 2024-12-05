@@ -17,7 +17,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 set(SOURCES
-    brightener.cpp
+    pixel_processor.cpp
 )
 
 add_executable(brightening-test
