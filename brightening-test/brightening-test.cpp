@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <memory>
-#include "../image.h"
+#include "../pixel_processor.h"
 
 namespace brighteningtest {
 
@@ -19,7 +19,7 @@ TEST_F(BrighteningTest, BrightensWholeImage) {
     image->pixels[2] = 65; image->pixels[3] = 254;
 
     ImageBrightener brightener(image);
-	image->processPixels(brightener);
+    image->processPixels(brightener);
     int attenuatedCount = image->attenuatedPixelCount;
 
     EXPECT_EQ(attenuatedCount, 1);         // Verify the number of attenuated pixels
@@ -35,7 +35,7 @@ TEST_F(BrighteningTest, BrightensWithAnotherImage) {
     brighteningImage->pixels[0] = 0; brighteningImage->pixels[1] = 25;
     brighteningImage->pixels[2] = 0; brighteningImage->pixels[3] = 25;
 
-	CustomBrightener brightener(image ,brighteningImage);
+    CustomBrightener brightener(image, brighteningImage);
 
     image->processPixels(brightener);
     int attenuatedCount = image->attenuatedPixelCount;
@@ -44,4 +44,6 @@ TEST_F(BrighteningTest, BrightensWithAnotherImage) {
     EXPECT_EQ(image->pixels[1], 80);      // Verify the right-side pixel is brightened
     EXPECT_EQ(attenuatedCount, 0);        // Verify no pixels were attenuated
 }
+
 }  // namespace brighteningtest
+
