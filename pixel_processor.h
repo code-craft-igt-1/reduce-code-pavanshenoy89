@@ -1,11 +1,11 @@
 #pragma once
 #include <memory>
-#include"image.h"
+#include"./image.h"
 
 // Base interface for pixel processing
 class PixelProcessor {
     std::shared_ptr<Image> m_inputImage;
-public:
+ public:
     PixelProcessor(std::shared_ptr<Image> inputImage);
     virtual ~PixelProcessor();
     virtual void ProcessPixel(int pixelIndex) = 0;
@@ -15,7 +15,7 @@ public:
 
 // ImageBrightener class
 class ImageBrightener : public PixelProcessor {
-public:
+ public:
     ImageBrightener(std::shared_ptr<Image> inputImage);
     void ProcessPixel(int pixelIndex) override;
 };
@@ -23,11 +23,11 @@ public:
 
 // CustomBrightener class
 class CustomBrightener : public PixelProcessor {
-private:
+ private:
     std::shared_ptr<Image> m_imageToAdd;
 
-public:
-    CustomBrightener(std::shared_ptr<Image> inputImage,const std::shared_ptr<Image> imageToAdd);
+ public:
+    CustomBrightener(std::shared_ptr<Image> inputImage, const std::shared_ptr<Image> imageToAdd);
     void ProcessPixel(int pixelIndex) override;
 };
 

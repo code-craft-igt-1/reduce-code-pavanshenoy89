@@ -1,4 +1,5 @@
-#include "pixel_processor.h"
+#include "./pixel_processor.h"
+#include<memory>
 
 PixelProcessor::PixelProcessor(std::shared_ptr<Image> inputImage)
     : m_inputImage(inputImage) {}
@@ -9,8 +10,7 @@ void PixelProcessor::ProcessPixelHelper(int pixelIndex, int brightness) {
     if (m_inputImage->pixels[pixelIndex] + brightness > 255) {
         ++m_inputImage->attenuatedPixelCount;
         m_inputImage->pixels[pixelIndex] = 255;
-    }
-    else {
+    } else {
         m_inputImage->pixels[pixelIndex] += brightness;
     }
 }
