@@ -18,6 +18,7 @@ enable_testing()
 
 set(SOURCES
     pixel_processor.cpp
+    image.cpp
 )
 
 add_executable(brightening-test
